@@ -4,12 +4,13 @@ import java.sql.*;
 
 public class demo02 {
     public static void main(String[] args) {
+        UserInfo userInfo = new UserInfo();
         Statement stmt = null;
         Connection conn = null;
         ResultSet rs = null;
-        String url = "jdbc:mysql://49.235.38.160/icemancrem";
-        String user_name = "root";
-        String psd = "Yaochen11";
+        String url = userInfo.getUrl();
+        String user_name = userInfo.getUser_name();
+        String psd = userInfo.getPsd();
         try {
             Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(url, user_name, psd);
